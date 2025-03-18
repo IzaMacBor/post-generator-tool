@@ -48,6 +48,20 @@ The tool will analyze the writing style of the old posts and generate a new post
 - Python 3.x
 - Dependencies listed in `requirements.txt`
 
-## License
+## Project Structure
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+The project follows the directory structure outlined below:
+
+project/
+│
+├── data/
+│   ├── raw_data/
+│   └── processed_data/
+│
+├── .gitignore
+├── README.md
+├── few_shot.py
+├── llm_helper.py
+├── main.py
+├── post_generator.py
+└── preprocess.py

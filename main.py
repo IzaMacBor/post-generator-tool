@@ -27,12 +27,6 @@ st.markdown("""
         color: #424242;
         margin-bottom: 20px;
     }
-    .card {
-        background-color: #f8f9fa;
-        border-radius: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
     .generated-post {
         background-color: #e8f4f8;
         border-left: 5px solid #1E88E5;
@@ -74,7 +68,7 @@ def loading_animation():
     
     progress_bar.empty()
 
-    
+
 # Main app layout
 def main():
     # Header
@@ -85,7 +79,6 @@ def main():
     
     # Sidebar with information
     with st.sidebar:
-        st.image("https://via.placeholder.com/150x150.png?text=AI+Writer", use_container_width=True)
         st.markdown("### About")
         st.write("This tool uses Llama3.2, an open-source LLM, to analyze your writing style and generate new posts.")
         

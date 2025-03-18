@@ -79,7 +79,8 @@ project/
 ├── llm_helper.py            # Helper functions for LLM interaction
 ├── main.py                  # Main Streamlit application
 ├── post_generator.py        # Post generation logic
-└── preprocess.py            # Data preprocessing utilities
+├── preprocess.py            # Data preprocessing utilities
+└── requirements.txt         # List of all dependencies needed to run the project
 ```
 
 ## 🤝 Contribution

@@ -1,7 +1,6 @@
 # 📊 Post Analyzer and Generator 🖋️
 
 This powerful tool analyzes your existing posts and helps generate new content that matches your unique writing style using advanced AI technology.
-Try it on: [Streamlit app](https://aipostgeneratorimb.streamlit.app/)
 
 ## ✨ Features
 

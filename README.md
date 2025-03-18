@@ -52,6 +52,7 @@ The tool will analyze the writing style of the old posts and generate a new post
 
 The project follows the directory structure outlined below:
 
+```bash
 project/
 │
 ├── data/
@@ -65,3 +66,4 @@ project/
 ├── main.py
 ├── post_generator.py
 └── preprocess.py
+```

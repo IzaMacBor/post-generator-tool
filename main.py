@@ -25,6 +25,7 @@ st.markdown("""
     .sub-header {
         font-size: 24px;
         color: #424242;
+        text-align: center;
         margin-bottom: 20px;
     }
     .generated-post {
@@ -33,12 +34,8 @@ st.markdown("""
         padding: 20px;
         border-radius: 5px;
         margin-top: 20px;
-    }
-    .footer {
-        text-align: center;
-        margin-top: 40px;
-        font-size: 14px;
-        color: #616161;
+        margin-left: auto;
+        margin-right: auto;
     }
     .stButton>button {
         background-color: #1E88E5;
@@ -50,6 +47,20 @@ st.markdown("""
     }
     .stButton>button:hover {
         background-color: #1565C0;
+    }
+    /* Center the generate button and keep footer at the bottom */
+    .generate-button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    .footer {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 14px;
+        color: #424242;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -68,7 +79,6 @@ def loading_animation():
     
     progress_bar.empty()
 
-
 # Main app layout
 def main():
     # Header
@@ -86,13 +96,19 @@ def main():
         st.write("1. Select your preferred topic")
         st.write("2. Choose the length of your post")
         st.write("3. Select your desired language")
-        st.write("4. Click 'Generate' and watch the magic happen!")
+        st.write("4. Click 'Generate Post' and watch the magic happen!")
         
         st.markdown("### Powered by")
         st.write("- Llama3.2 open-source LLM")
         st.write("- LangChain framework")
         st.write("- Groq Cloud")
     
+        st.markdown("### More info")
+        st.write("""  
+        To learn more about how it works or to explore additional details, visit the GitHub repository. 
+        """)
+        st.write("[GitHub Repository](https://github.com/IzaMacBor/post-generator-tool.git)")
+
     # Main content area
     st.markdown("<div class='card'>", unsafe_allow_html=True)
     
@@ -101,7 +117,7 @@ def main():
     tags = fs.get_tags()
     
     # Settings section
-    st.markdown("### 🎛️ Post Settings")
+    st.markdown("### 🛠️ Post Settings")
     
     # Create three columns for the dropdowns
     col1, col2, col3 = st.columns(3)
@@ -122,10 +138,10 @@ def main():
         # Remove the emoji prefix for processing
         selected_language = selected_language.split(" ")[1]
         
-    # Generate Button
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        generate_button = st.button("✨ Generate Post")
+    # Generate Button centered
+    st.markdown('<div class="generate-button-container">', unsafe_allow_html=True)
+    generate_button = st.button("✨ Generate Post")
+    st.markdown('</div>', unsafe_allow_html=True)
     
     st.markdown("</div>", unsafe_allow_html=True)
     
@@ -136,7 +152,6 @@ def main():
             post = generate_post(selected_length, selected_language, selected_tag)
             
         # Display the generated post
-        st.markdown("<div class='generated-post'>", unsafe_allow_html=True)
         st.markdown("### 📝 Your Generated Post")
         st.write(post)
         st.markdown("</div>", unsafe_allow_html=True)
@@ -156,9 +171,9 @@ def main():
             st.button("🔄 Regenerate")
         with col4:
             st.button("👍 Like This Post")
-    
-    # Footer
-    st.markdown("<div class='footer'>Powered by Llama3.2 open-source LLM and LangChain • © 2025 Post Generator</div>", unsafe_allow_html=True)
+
+# Footer 
+st.markdown('<div class="footer">Created by Izabela Mac-Borkowska</div>', unsafe_allow_html=True)
 
 # Run the app
 if __name__ == "__main__":
